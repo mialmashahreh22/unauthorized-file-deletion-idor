@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0f172a">
-  <title>Unauthorized File Deletion IDOR CTF Lab</title>
+  <title>Unauthorized File Deletion IDOR - Realistic CTF Simulation</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/ctf-icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -13,46 +13,58 @@
   <main class="app">
     <section class="hero">
       <div>
-        <p class="eyebrow">Bug Report CTF</p>
+        <p class="eyebrow">Realistic Bug Simulation</p>
         <h1>Unauthorized File Deletion IDOR</h1>
-        <p class="lede">A predictable resource identifier can be used with an unauthenticated DELETE request to remove a file-like resource.</p>
+        <p class="lede">Use the mock request console to delete a resource while unauthenticated, then verify it is gone.</p>
       </div>
-      <div class="terminal" aria-label="Mock lab terminal">
+      <div class="terminal">
         <div class="bar"><span></span><span></span><span></span></div>
-        <pre><code id="terminal-code">loading mock scenario...</code></pre>
-        <div class="scan"></div>
+        <pre><code id="event-log">Lab booted. Interact with the mock app to find the bug.</code></pre>
       </div>
     </section>
 
     <section class="hud">
-      <div><span>Score</span><strong id="score">0</strong></div>
-      <div><span>Lives</span><strong id="lives">3</strong></div>
-      <div><span>Mission</span><strong><span id="mission">1</span>/3</strong></div>
       <div><span>Severity</span><strong>High</strong></div>
+      <div><span>Mode</span><strong>Mock App</strong></div>
+      <div><span>Status</span><strong id="status">Hunting</strong></div>
+      <div><span>Flag</span><strong id="flag-state">Locked</strong></div>
     </section>
 
     <section class="layout">
       <article class="card">
-        <p id="type" class="pill">IDOR / Access Control / Destructive Action</p>
-        <h2 id="question">Question</h2>
-        <pre class="snippet"><code id="snippet"></code></pre>
-        <div id="choices" class="choices"></div>
-        <div class="actions">
-          <button id="hint" class="ghost" type="button">Hint</button>
-          <button id="next" class="primary" type="button" disabled>Next</button>
+        <div class="card-head">
+          <p class="pill">Goal</p>
+          <h2>Exploit the missing authorization check on DELETE.</h2>
+          <p class="muted">Everything here is local mock data. No real target is contacted.</p>
         </div>
-        <p id="feedback" class="feedback" aria-live="polite"></p>
+        <div id="lab-root"></div>
       </article>
 
       <aside class="card intel">
         <h2>Analyst Notes</h2>
-        <p><strong>Expected:</strong> DELETE requests should require authentication, ownership checks, and non-predictable identifiers.</p>
-        <p><strong>Actual:</strong> The server accepts destructive requests based only on knowledge of a resource identifier.</p>
-        <p>Complete the missions to reveal the flag.</p>
+        <p><strong>Expected:</strong> DELETE should require authentication and resource ownership.</p>
+        <p><strong>Actual:</strong> The mock server deletes any known file ID even when the user is anonymous.</p>
+        <p class="muted">When you reproduce the vulnerable behavior, the flag unlocks.</p>
         <div id="flag" class="flag hidden"></div>
       </aside>
     </section>
   </main>
+  <script>
+    window.CTF_SCENARIO = {
+  "slug": "unauthorized-file-deletion-idor",
+  "title": "Unauthorized File Deletion IDOR",
+  "kind": "fileDelete",
+  "severity": "High",
+  "flag": "FLAG{DESTRUCTIVE_METHODS_REQUIRE_AUTHORIZATION}",
+  "brief": "Use the mock request console to delete a resource while unauthenticated, then verify it is gone.",
+  "goal": "Exploit the missing authorization check on DELETE.",
+  "expected": "DELETE should require authentication and resource ownership.",
+  "actual": "The mock server deletes any known file ID even when the user is anonymous.",
+  "seed": {
+    "fileId": "f8e3d3c74ce54fbaa5088e313952f225"
+  }
+};
+  </script>
   <script src="app.js"></script>
 </body>
 </html>

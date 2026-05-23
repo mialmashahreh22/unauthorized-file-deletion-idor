@@ -2,8 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Bug_Report-Cybersecurity-0078D4?style=for-the-badge" alt="Bug Report">
-  <img src="https://img.shields.io/badge/CTF_Lab-Playable-22C55E?style=for-the-badge" alt="CTF Lab">
-  <img src="https://img.shields.io/badge/Category-IDOR_%2F_Access_Control_%2F_Destructive_Action-F97316?style=for-the-badge" alt="IDOR / Access Control / Destructive Action">
+  <img src="https://img.shields.io/badge/CTF_Lab-Realistic_Simulation-22C55E?style=for-the-badge" alt="Realistic CTF Simulation">
   <img src="https://img.shields.io/badge/Severity-High-DC2626?style=for-the-badge" alt="High">
 </p>
 
@@ -11,21 +10,11 @@
 
 ## Overview
 
-A predictable resource identifier can be used with an unauthenticated DELETE request to remove a file-like resource.
+Use the mock request console to delete a resource while unauthenticated, then verify it is gone.
 
-This repository is a **sanitized educational case study**. It does not target a real company or live system. The included lab uses mock data so students can safely understand the bug class.
+This repository is a **sanitized educational case study**. It does not target a real company or live system. The CTF lab is a mock vulnerable app where the flag unlocks only after reproducing the simulated bug.
 
-## Quick Facts
-
-| Field | Value |
-|---|---|
-| Category | IDOR / Access Control / Destructive Action |
-| Severity | High |
-| Related CWE | CWE-639: Authorization Bypass Through User-Controlled Key |
-| Lab | Browser-based CTF |
-| Flag Style | `FLAG{...}` |
-
-## Play the CTF Lab
+## Play the CTF Simulation
 
 Run locally:
 
@@ -39,7 +28,15 @@ Open:
 http://localhost:8000/labs/ctf-game/
 ```
 
-Goal: solve the three missions and reveal the flag.
+GitHub Pages:
+
+```text
+https://mialmashahreh22.github.io/unauthorized-file-deletion-idor/labs/ctf-game/
+```
+
+## What You Must Do
+
+Exploit the missing authorization check on DELETE.
 
 ## Report
 
@@ -48,12 +45,6 @@ Read the full report:
 ```text
 report/BUG-REPORT.md
 ```
-
-## Impact Summary
-
-- Unauthorized deletion of resources.
-- Potential denial of service.
-- Integrity loss if identifiers can be guessed or enumerated.
 
 ## Repository Structure
 

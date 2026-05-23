@@ -1,7 +1,7 @@
 {
-  "name": "Unauthorized File Deletion IDOR CTF",
+  "name": "Unauthorized File Deletion IDOR Simulation",
   "short_name": "unauthorized",
-  "description": "CTF lab for Unauthorized File Deletion IDOR",
+  "description": "Realistic CTF simulation for Unauthorized File Deletion IDOR",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#070b16",
