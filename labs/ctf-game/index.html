@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
+  <title>Unauthorized File Deletion IDOR CTF Lab</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/ctf-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Bug Report CTF</p>
+        <h1>Unauthorized File Deletion IDOR</h1>
+        <p class="lede">A predictable resource identifier can be used with an unauthenticated DELETE request to remove a file-like resource.</p>
+      </div>
+      <div class="terminal" aria-label="Mock lab terminal">
+        <div class="bar"><span></span><span></span><span></span></div>
+        <pre><code id="terminal-code">loading mock scenario...</code></pre>
+        <div class="scan"></div>
+      </div>
+    </section>
+
+    <section class="hud">
+      <div><span>Score</span><strong id="score">0</strong></div>
+      <div><span>Lives</span><strong id="lives">3</strong></div>
+      <div><span>Mission</span><strong><span id="mission">1</span>/3</strong></div>
+      <div><span>Severity</span><strong>High</strong></div>
+    </section>
+
+    <section class="layout">
+      <article class="card">
+        <p id="type" class="pill">IDOR / Access Control / Destructive Action</p>
+        <h2 id="question">Question</h2>
+        <pre class="snippet"><code id="snippet"></code></pre>
+        <div id="choices" class="choices"></div>
+        <div class="actions">
+          <button id="hint" class="ghost" type="button">Hint</button>
+          <button id="next" class="primary" type="button" disabled>Next</button>
+        </div>
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+      </article>
+
+      <aside class="card intel">
+        <h2>Analyst Notes</h2>
+        <p><strong>Expected:</strong> DELETE requests should require authentication, ownership checks, and non-predictable identifiers.</p>
+        <p><strong>Actual:</strong> The server accepts destructive requests based only on knowledge of a resource identifier.</p>
+        <p>Complete the missions to reveal the flag.</p>
+        <div id="flag" class="flag hidden"></div>
+      </aside>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

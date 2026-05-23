@@ -1,0 +1,17 @@
+{
+  "name": "Unauthorized File Deletion IDOR CTF",
+  "short_name": "unauthorized",
+  "description": "CTF lab for Unauthorized File Deletion IDOR",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#070b16",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "assets/ctf-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
