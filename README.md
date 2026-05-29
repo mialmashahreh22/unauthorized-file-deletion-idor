@@ -25,9 +25,9 @@ A user can delete a file-like resource just by knowing its ID, without being aut
 
 ## Play the CTF Lab
 
-GitHub Pages:
+GitHub lab files:
 
-[Play the lab](https://mialmashahreh22.github.io/unauthorized-file-deletion-idor/labs/ctf-game/)
+[Open lab files](https://github.com/Mosec2525/unauthorized-file-deletion-idor/tree/main/labs/ctf-game/)
 
 Run locally:
 
